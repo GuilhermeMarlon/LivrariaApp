@@ -1,0 +1,21 @@
+<div id="<%= dom_id rental %>">
+  <p>
+    <strong><%= t('activerecord.attributes.rental.user') %>:</strong>
+    <%= rental.user.name if rental.user.present? %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.rental.book') %>:</strong>
+    <%= rental.book.title if rental.book.present? %>
+  </p>
+
+  <p>
+    <strong><%= Rental.human_attribute_name(:rent_date) %>:</strong>
+    <%= rental.rent_date %>
+  </p>
+
+  <p>
+    <strong><%= Rental.human_attribute_name(:return_date) %>:</strong>
+    <%= rental.return_date %>
+  </p>
+</div>

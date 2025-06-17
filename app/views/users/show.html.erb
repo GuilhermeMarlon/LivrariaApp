@@ -1,0 +1,10 @@
+
+<h1><%= t('users.show.title') %></h1>
+
+<%= render @user %>
+
+<div>
+  <%= link_to t('helpers.link.edit'), edit_user_path(@user) %> |
+  <%= link_to t('helpers.link.back'), users_path %> |
+  <%= link_to t('helpers.link.destroy'), @user, method: :delete %>
+</div>

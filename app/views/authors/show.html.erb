@@ -1,0 +1,10 @@
+
+<h1><%= t('authors.show.title') %></h1>
+
+<%= render @author %>
+
+<div>
+  <%= link_to t('helpers.link.edit'), edit_author_path(@author) %> |
+  <%= link_to t('helpers.link.back'), authors_path %>|
+  <%= link_to t('helpers.link.destroy'), @author, method: :delete %>
+</div>

@@ -1,0 +1,165 @@
+# config/locales/pt-BR.yml
+pt-BR:
+  hello: "Olá Mundo!"
+
+  # Traduções para os modelos
+  activerecord:
+    models:
+      user:
+        one: "Usuário"
+        other: "Usuários"
+      author:
+        one: "Autor"
+        other: "Autores"
+      book:
+        one: "Livro"
+        other: "Livros"
+      rental:
+        one: "Aluguel"
+        other: "Alugueis"
+
+    attributes: # Esta é a seção CORRETA para traduzir nomes de atributos
+      user:
+        name: "Nome"
+        email: "E-mail"
+        phone: "Telefone"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+      author:
+        name: "Nome"
+        nationality: "Nacionalidade" # Adicionado (se você tiver este campo)
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+      book:
+        title: "Título"
+        isbn: "ISBN" # Adicionado (se você tiver este campo)
+        publication_date: "Data de Publicação" # Adicionado (se você tiver este campo)
+        synopsis: "Sinopse"
+        author: "Autor" # Para o association select
+        author_id: "Autor" # Para mensagens de erro de validação (ex: "Autor não pode ficar em branco")
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+      rental:
+        user: "Usuário"
+        user_id: "Usuário" # Importante para mensagens de erro com IDs
+        book: "Livro"
+        book_id: "Livro" # Importante para mensagens de erro com IDs
+        rent_date: "Data de Locação"
+        return_date: "Data de Devolução"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+
+  # Traduções para ações e textos comuns do scaffold
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Atualizar %{model}"
+
+    link:
+      back: "Voltar"
+      edit: "Editar"
+      destroy: "Excluir"
+      new: "Novo %{model}"
+      show: "Mostrar"
+
+  # Mensagens de flash
+  flash:
+    actions:
+      create:
+        notice: "%{resource_name} foi criado(a) com sucesso."
+      update:
+        notice: "%{resource_name} foi atualizado(a) com sucesso."
+      destroy:
+        notice: "%{resource_name} foi excluído(a) com sucesso."
+        alert: "%{resource_name} não pôde ser excluído(a)."
+
+  # Mensagens de validação (padrão do Rails)
+  errors:
+    messages:
+      not_a_number: "não é um número"
+      blank: "não pode ficar em branco"
+      taken: "já está em uso"
+      too_short: "é muito curto (mínimo %{count} caracteres)"
+      too_long: "é muito longo (máximo %{count} caracteres)"
+      invalid: "é inválido"
+      # Adicionando 'required' aqui como fallback genérico para qualquer campo que o procure
+      required: "não pode ficar em branco"
+
+    # Mensagens de erro específicas por modelo/atributo.
+    # É aqui que incluímos as chaves 'user' e 'book' para 'required'.
+    models:
+      rental:
+        attributes:
+          # Para validações do tipo `validates :user_id, presence: true`
+          user_id:
+            required: "não pode ficar em branco"
+          # Para validações do tipo `validates :book_id, presence: true`
+          book_id:
+            required: "não pode ficar em branco"
+          # Incluindo também as chaves 'user' e 'book' (sem _id),
+          # caso a validação ou o formulário busque por elas.
+          user: # <--- Adicionado, conforme sua sugestão
+            required: "não pode ficar em branco"
+          book: # <--- Adicionado, conforme sua sugestão
+            required: "não pode ficar em branco"
+
+    format:
+      short: "%{attribute} %{message}"
+      full: "%{attribute} %{message}"
+
+    template:
+      header:
+        one: "%{count} erro impediu que este %{model} fosse salvo(a):"
+        other: "%{count} erros impediram que este %{model} fosse salvo(a):"
+      body: "Houve problemas com os seguintes campos:"
+
+  # Textos para as páginas de index, show, new, edit
+  listing: "Listando %{model}"
+  new: "Novo %{model}"
+  editing: "Editando %{model}"
+  show_details: "Detalhes do %{model}"
+
+  # Títulos dos scaffolds (já estavam corretos)
+  users:
+    index:
+      title: "Usuários"
+    new:
+      title: "Novo Usuário"
+    edit:
+      title: "Editando Usuário"
+    show:
+      title: "Detalhes do Usuário"
+
+  authors:
+    index:
+      title: "Autores"
+    new:
+      title: "Novo Autor"
+    edit:
+      title: "Editando Autor"
+    show:
+      title: "Detalhes do Autor"
+
+  books:
+    index:
+      title: "Livros"
+    new:
+      title: "Novo Livro"
+    edit:
+      title: "Editando Livro"
+    show:
+      title: "Detalhes do Livro"
+
+  rentals:
+    index:
+      title: "Alugueis"
+    new:
+      title: "Novo Aluguel"
+    edit:
+      title: "Editando Aluguel"
+    show:
+      title: "Detalhes do Aluguel"
+
+  # Textos para prompts de seleção (collection_select)
+  select_user: "Selecione um Usuário"
+  select_book: "Selecione um Livro"

@@ -1,0 +1,10 @@
+<% content_for :title, "Editing rental" %>
+
+<h1><%= t('rentals.edit.title') %></h1>
+
+<%= render "form", rental: @rental %>
+
+<div>
+  <%= link_to t('helpers.link.show'), @rental %> |
+  <%= link_to t('helpers.link.back'), rentals_path %>
+</div>

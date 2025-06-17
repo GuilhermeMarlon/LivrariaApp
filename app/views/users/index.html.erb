@@ -1,0 +1,12 @@
+<h1><%= t('users.index.title') %></h1>
+
+<%= link_to t('helpers.link.new', model: t('activerecord.models.user.one')), new_user_path, class: "button-link" %> 
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render user %>
+    <p>
+      <%= link_to t('helpers.link.show'), user %>
+    </p>
+  <% end %>
+</div>

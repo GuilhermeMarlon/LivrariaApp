@@ -1,0 +1,13 @@
+<h1><%= t('books.index.title') %></h1>
+
+<%= link_to t('helpers.link.new', model: t('activerecord.models.book.one')), new_book_path, class: "button-link" %> 
+
+<div id="books">
+  <% @books.each do |book| %>
+    <%= render book %>
+    <p>
+      <%= link_to t('helpers.link.show'), book %>
+    </p>
+  <% end %>
+</div>
+

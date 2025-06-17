@@ -1,0 +1,10 @@
+
+<h1><%= t('rentals.show.title') %></h1>
+
+<%= render @rental %>
+
+<div>
+  <%= link_to t('helpers.link.edit'), edit_rental_path(@rental) %> |
+  <%= link_to t('helpers.link.back'), rentals_path %>|
+  <%= link_to t('helpers.link.destroy'), @rental, method: :delete %>
+</div>

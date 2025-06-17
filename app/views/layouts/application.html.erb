@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Livraria App" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+
+
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <header class="main-header">
+      <div class="header-content">
+        <h1 class="app-title">
+          <%= link_to "LivrariaApp", root_path %>
+        </h1>
+        <nav class="main-nav">
+          <ul class="nav-list">
+            <li class="nav-item"><%= link_to t('activerecord.models.user.other'), users_path, class: "nav-button" %></li>
+            <li class="nav-item"><%= link_to t('activerecord.models.author.other'), authors_path, class: "nav-button" %></li>
+            <li class="nav-item"><%= link_to t('activerecord.models.book.other'), books_path, class: "nav-button" %></li>
+            <li class="nav-item"><%= link_to t('activerecord.models.rental.other'), rentals_path, class: "nav-button" %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <% if notice.present? %>
+        <p style="color: green"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p style="color: red"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

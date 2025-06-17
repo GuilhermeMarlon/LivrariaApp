@@ -1,0 +1,18 @@
+<div id="<%= dom_id book %>">
+  <p>
+    <strong><%= Book.human_attribute_name(:title) %>:</strong>
+    <%= book.title %>
+  </p>
+
+  <p>
+  <strong><%= Book.human_attribute_name(:synopsis) %>:</strong>
+  <%= book.synopsis %>
+</p>
+
+
+<p>
+  <strong><%= t('activerecord.attributes.book.author') %>:</strong> 
+  <%= book.author.name if book.author.present? %>
+</p>
+
+</div>

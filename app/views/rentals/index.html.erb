@@ -1,0 +1,16 @@
+
+<% content_for :title, "Rentals" %>
+
+<h1><%= t('rentals.index.title') %></h1>
+
+<%= link_to t('helpers.link.new', model: t('activerecord.models.rental.one')), new_rental_path, class: "button-link" %> 
+
+<div id="rentals">
+  <% @rentals.each do |rental| %>
+    <%= render rental %>
+    <p>
+      <%= link_to t('helpers.link.show'), rental %>
+    </p>
+  <% end %>
+</div>
+

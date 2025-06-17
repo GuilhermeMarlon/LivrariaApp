@@ -1,0 +1,9 @@
+<% content_for :title, "New rental" %>
+
+<h1><%= t('rentals.new.title') %></h1>
+
+<%= render "form", rental: @rental %>
+
+<div>
+  <%= link_to t('helpers.link.back'), rentals_path %>
+</div>

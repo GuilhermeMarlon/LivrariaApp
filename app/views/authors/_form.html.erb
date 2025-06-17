@@ -1,0 +1,21 @@
+<%= form_with(model: author) do |form| %>
+  <% if author.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% author.errors.each do |error| %>
+          <li><%= t('errors.format.short', attribute: t("activerecord.attributes.author.#{error.attribute}"), message: error.message) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit t('helpers.submit.create', model: t('activerecord.models.author.one')) if author.new_record? %>
+    <%= form.submit t('helpers.submit.update', model: t('activerecord.models.author.one')) if author.persisted? %>
+  </div>
+<% end %>

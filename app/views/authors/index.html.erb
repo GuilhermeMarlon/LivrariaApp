@@ -1,0 +1,13 @@
+<h1><%= t('authors.index.title') %></h1>
+
+<%= link_to t('helpers.link.new', model: t('activerecord.models.author.one')), new_author_path, class: "button-link" %> 
+
+<div id="authors">
+  <% @authors.each do |author| %>
+    <%= render author %>
+    <p>
+      <%= link_to t('helpers.link.show'), author %>
+    </p>
+  <% end %>
+</div>
+

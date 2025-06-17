@@ -1,0 +1,17 @@
+<div id="<%= dom_id user %>" class="record-item"> <%# <--- ADICIONE class="record-item" AQUI! %>
+  <p>
+    <strong><%= User.human_attribute_name(:name) %>:</strong>
+    <%= user.name %>
+  </p>
+
+  <p>
+    <strong><%= User.human_attribute_name(:email) %>:</strong>
+    <%= user.email %>
+  </p>
+
+  <p>
+    <strong><%= User.human_attribute_name(:phone) %>:</strong>
+    <%= user.phone %>
+  </p>
+
+</div>

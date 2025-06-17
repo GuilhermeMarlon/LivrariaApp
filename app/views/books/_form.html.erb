@@ -1,0 +1,31 @@
+<%= form_with(model: book) do |form| %>
+  <% if book.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% book.errors.each do |error| %>
+          <li><%= t('errors.format.short', attribute: t("activerecord.attributes.book.#{error.attribute}"), message: error.message) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :synopsis %>
+    <%= form.text_area :synopsis %>
+  </div>
+
+  <div>
+    <%= form.label :author_id, t('activerecord.attributes.book.author') %>
+    <%= form.collection_select :author_id, Author.all, :id, :name, { prompt: t('select_author') } %>
+  </div>
+
+  <div>
+    <%= form.submit t('helpers.submit.create', model: t('activerecord.models.book.one')) if book.new_record? %>
+    <%= form.submit t('helpers.submit.update', model: t('activerecord.models.book.one')) if book.persisted? %>
+  </div>
+<% end %>

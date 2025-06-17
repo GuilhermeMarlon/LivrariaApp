@@ -1,0 +1,36 @@
+<%= form_with(model: rental) do |form| %>
+  <% if rental.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% rental.errors.each do |error| %>
+          <li><%= t('errors.format.short', attribute: t("activerecord.attributes.rental.#{error.attribute}"), message: error.message) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :user_id, t('activerecord.attributes.rental.user') %>
+    <%= form.collection_select :user_id, User.all, :id, :name, { prompt: t('select_user') } %>
+  </div>
+
+  <div>
+    <%= form.label :book_id, t('activerecord.attributes.rental.book') %>
+    <%= form.collection_select :book_id, Book.all, :id, :title, { prompt: t('select_book') } %>
+  </div>
+
+  <div>
+    <%= form.label :rent_date %>
+    <%= form.date_field :rent_date %>
+  </div>
+
+  <div>
+    <%= form.label :return_date %>
+    <%= form.date_field :return_date %>
+  </div>
+
+  <div>
+    <%= form.submit t('helpers.submit.create', model: t('activerecord.models.rental.one')) if rental.new_record? %>
+    <%= form.submit t('helpers.submit.update', model: t('activerecord.models.rental.one')) if rental.persisted? %>
+  </div>
+<% end %>
