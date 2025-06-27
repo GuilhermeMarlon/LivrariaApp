@@ -15,16 +15,16 @@ class UsersTest < ApplicationSystemTestCase
 
   test "should create user" do
     visit users_url
-    click_on "Novo usuário"
+    click_on "Novo Usuário"
 
 
-    fill_in "Email", with: @user.email
-    fill_in "Name", with: @user.name
-    fill_in "Phone", with: @user.phone
+    fill_in "E-mail", with: @user.email
+    fill_in "Nome", with: @user.name
+    fill_in "Telefone", with: @user.phone
 
     click_on "Criar Usuário"
 
-    assert_text "Usuário foi criado com sucesso"
+    assert_text "User was successfully created."
     click_on "Voltar"
   end
 
@@ -32,14 +32,14 @@ class UsersTest < ApplicationSystemTestCase
     visit user_url(@user)
     click_on "Editar", match: :first
 
-    fill_in "Email", with: @user.email
-    fill_in "Name", with: @user.name
-    fill_in "Phone", with: @user.phone
+    fill_in "E-mail", with: @user.email
+    fill_in "Nome", with: @user.name
+    fill_in "Telefone", with: @user.phone
 
     click_on "Atualizar Usuário"
 
 
-    assert_text "Usuário foi atualizado com sucesso"
+    assert_text "User was successfully updated."
     click_on "Voltar"
   end
 
@@ -48,6 +48,6 @@ class UsersTest < ApplicationSystemTestCase
 
     click_on "Excluir", match: :first
 
-    assert_text "Usuário foi removido com sucesso"
+    assert_text "User was successfully destroyed."
   end
 end
