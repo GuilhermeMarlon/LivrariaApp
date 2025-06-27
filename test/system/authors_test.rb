@@ -21,25 +21,25 @@ class AuthorsTest < ApplicationSystemTestCase
     click_on "Criar Autor"
 
     assert_text "Author was successfully created"
-    click_on "Back"
+    click_on "Voltar"
   end
 
   test "should update Author" do
     visit author_url(@author)
-    click_on "Editar este(a) author", match: :first
+    click_on "Editar", match: :first
 
     fill_in "Name", with: @author.name
 
     click_on "Atualizar Autor"
 
     assert_text "Author was successfully updated"
-    click_on "Back"
+    click_on "Voltar"
   end
 
   test "should destroy Author" do
     visit author_url(@author)
 
-    click_on "Remover este(a) author", match: :first
+    click_on "Excluir", match: :first
 
     assert_text "Author was successfully destroyed"
   end

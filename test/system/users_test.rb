@@ -22,32 +22,32 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Name", with: @user.name
     fill_in "Phone", with: @user.phone
 
-    click_on "Create User"
+    click_on "Criar Usuário"
 
-    assert_text "User was successfully created"
-    click_on "Back"
+    assert_text "Usuário foi criado com sucesso"
+    click_on "Voltar"
   end
 
   test "should update User" do
     visit user_url(@user)
-    click_on "Editar este(a) user", match: :first
+    click_on "Editar", match: :first
 
     fill_in "Email", with: @user.email
     fill_in "Name", with: @user.name
     fill_in "Phone", with: @user.phone
 
-    click_on "Update User"
+    click_on "Atualizar Usuário"
 
 
-    assert_text "User was successfully updated"
-    click_on "Back"
+    assert_text "Usuário foi atualizado com sucesso"
+    click_on "Voltar"
   end
 
   test "should destroy User" do
     visit user_url(@user)
 
-    click_on "Remover este(a) user", match: :first
+    click_on "Excluir", match: :first
 
-    assert_text "User was successfully destroyed"
+    assert_text "Usuário foi removido com sucesso"
   end
 end

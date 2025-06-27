@@ -20,30 +20,30 @@ class BooksTest < ApplicationSystemTestCase
     fill_in "Synopsis", with: @book.synopsis
     fill_in "Title", with: @book.title
 
-    click_on "Create Book"
+    click_on "Novo Livro"
 
-    assert_text "Book was successfully created"
-    click_on "Back"
+    assert_text "Livro foi criado com sucesso"
+    click_on "Voltar"
   end
 
   test "should update Book" do
     visit book_url(@book)
-    click_on "Editar este(a) book", match: :first
+    click_on "Editar", match: :first
 
     fill_in "Author", with: @book.author_id
     fill_in "Synopsis", with: @book.synopsis
     fill_in "Title", with: @book.title
 
-    click_on "Update Book"
+    click_on "Atualizar Livro"
 
-    assert_text "Book was successfully updated"
-    click_on "Back"
+    assert_text "Livro foi atualizado com sucesso"
+    click_on "Voltar"
   end
 
   test "should destroy Book" do
     visit book_url(@book)
 
-    click_on "Remover este(a) book", match: :first
-    assert_text "Book was successfully destroyed"
+    click_on "Excluir", match: :first
+    assert_text "Livro foi removido com sucesso"
   end
 end

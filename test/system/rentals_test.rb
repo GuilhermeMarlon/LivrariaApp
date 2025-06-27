@@ -28,12 +28,12 @@ class RentalsTest < ApplicationSystemTestCase
 
     # O botão de criar deve ser "Create Rental" ou "Criar Aluguel"
     # Se o scaffold gerou em inglês, o texto é "Create Rental".
-    click_on "Create Rental"
+    click_on "Criar Aluguel"
 
     # Mensagem de sucesso
     assert_text "Rental was successfully created"
     # O link "Back" geralmente não é traduzido, então deve estar correto.
-    click_on "Back"
+    click_on "Voltar"
   end
 
   test "should update Rental" do
@@ -42,7 +42,7 @@ class RentalsTest < ApplicationSystemTestCase
     # O padrão do Rails é "Edit this <model_name>"
     # Ou "Editar este(a) <model_name>" se traduzido.
     # Vamos tentar o padrão que aparece no seu log, mas sem o (a).
-    click_on "Editar este rental", match: :first
+    click_on "Editar", match: :first
 
     # Campos do formulário de atualização
     fill_in "Book", with: @rental.book_id
@@ -51,11 +51,11 @@ class RentalsTest < ApplicationSystemTestCase
     fill_in "User", with: @rental.user_id
 
     # O botão de atualização deve ser "Update Rental" ou "Atualizar Rental"
-    click_on "Update Rental"
+    click_on "Atualizar Aluguel"
 
     # Mensagem de sucesso
     assert_text "Rental was successfully updated"
-    click_on "Back"
+    click_on "Voltar"
   end
 
   test "should destroy Rental" do
@@ -63,7 +63,7 @@ class RentalsTest < ApplicationSystemTestCase
     # Clique em "Remover este(a) rental".
     # O padrão é "Destroy this <model_name>"
     # Ou "Remover este(a) <model_name>"
-    click_on "Remover este rental", match: :first
+    click_on "Excluir", match: :first
 
     # Mensagem de sucesso
     assert_text "Rental was successfully destroyed"
