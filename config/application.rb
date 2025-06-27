@@ -6,7 +6,6 @@ Bundler.require(*Rails.groups)
 
 module LivrariaApp
   class Application < Rails::Application
-
     config.load_defaults 8.0
 
 
