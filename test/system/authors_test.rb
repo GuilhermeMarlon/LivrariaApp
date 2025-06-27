@@ -7,15 +7,18 @@ class AuthorsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit authors_url
-    assert_selector "h1", text: "Authors"
+
+    assert_selector "h1", text: "Autores"
   end
 
   test "should create author" do
     visit authors_url
-    click_on "New author"
+
+    click_on "Novo autor"
 
     fill_in "Name", with: @author.name
-    click_on "Create Author"
+
+    click_on "Criar Autor"
 
     assert_text "Author was successfully created"
     click_on "Back"
@@ -23,10 +26,11 @@ class AuthorsTest < ApplicationSystemTestCase
 
   test "should update Author" do
     visit author_url(@author)
-    click_on "Edit this author", match: :first
+    click_on "Editar este(a) author", match: :first
 
     fill_in "Name", with: @author.name
-    click_on "Update Author"
+
+    click_on "Atualizar Autor"
 
     assert_text "Author was successfully updated"
     click_on "Back"
@@ -34,7 +38,8 @@ class AuthorsTest < ApplicationSystemTestCase
 
   test "should destroy Author" do
     visit author_url(@author)
-    click_on "Destroy this author", match: :first
+
+    click_on "Remover este(a) author", match: :first
 
     assert_text "Author was successfully destroyed"
   end

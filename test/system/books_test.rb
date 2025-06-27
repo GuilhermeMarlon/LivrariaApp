@@ -1,3 +1,5 @@
+# test/system/books_test.rb
+
 require "application_system_test_case"
 
 class BooksTest < ApplicationSystemTestCase
@@ -7,16 +9,17 @@ class BooksTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit books_url
-    assert_selector "h1", text: "Books"
+    assert_selector "h1", text: "Livros"
   end
 
   test "should create book" do
     visit books_url
-    click_on "New book"
+    click_on "Novo livro"
 
     fill_in "Author", with: @book.author_id
     fill_in "Synopsis", with: @book.synopsis
     fill_in "Title", with: @book.title
+
     click_on "Create Book"
 
     assert_text "Book was successfully created"
@@ -25,11 +28,12 @@ class BooksTest < ApplicationSystemTestCase
 
   test "should update Book" do
     visit book_url(@book)
-    click_on "Edit this book", match: :first
+    click_on "Editar este(a) book", match: :first
 
     fill_in "Author", with: @book.author_id
     fill_in "Synopsis", with: @book.synopsis
     fill_in "Title", with: @book.title
+
     click_on "Update Book"
 
     assert_text "Book was successfully updated"
@@ -38,8 +42,8 @@ class BooksTest < ApplicationSystemTestCase
 
   test "should destroy Book" do
     visit book_url(@book)
-    click_on "Destroy this book", match: :first
 
+    click_on "Remover este(a) book", match: :first
     assert_text "Book was successfully destroyed"
   end
 end

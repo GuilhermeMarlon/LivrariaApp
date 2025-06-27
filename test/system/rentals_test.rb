@@ -7,18 +7,23 @@ class RentalsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit rentals_url
-    assert_selector "h1", text: "Rentals"
+
+    assert_selector "h1", text: "Alugueis"
   end
 
   test "should create rental" do
     visit rentals_url
-    click_on "New rental"
+
+    click_on "Novo aluguel"
 
     fill_in "Book", with: @rental.book_id
     fill_in "Rent date", with: @rental.rent_date
     fill_in "Return date", with: @rental.return_date
     fill_in "User", with: @rental.user_id
+
+
     click_on "Create Rental"
+
 
     assert_text "Rental was successfully created"
     click_on "Back"
@@ -26,12 +31,15 @@ class RentalsTest < ApplicationSystemTestCase
 
   test "should update Rental" do
     visit rental_url(@rental)
-    click_on "Edit this rental", match: :first
+
+    click_on "Editar este(a) rental", match: :first
+
 
     fill_in "Book", with: @rental.book_id
     fill_in "Rent date", with: @rental.rent_date
     fill_in "Return date", with: @rental.return_date
     fill_in "User", with: @rental.user_id
+
     click_on "Update Rental"
 
     assert_text "Rental was successfully updated"
@@ -40,7 +48,9 @@ class RentalsTest < ApplicationSystemTestCase
 
   test "should destroy Rental" do
     visit rental_url(@rental)
-    click_on "Destroy this rental", match: :first
+
+    click_on "Remover este(a) rental", match: :first
+
 
     assert_text "Rental was successfully destroyed"
   end
