@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :rentals
+  has_many :rentals, dependent: :destroy 
 
   validates :name, presence: true 
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\.com\z/, message: "deve ser um email válido (ex: email@exemplo.com)" }

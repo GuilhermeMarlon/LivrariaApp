@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
   belongs_to :author
-  has_many :rentals
+  has_many :rentals, dependent: :destroy 
 end

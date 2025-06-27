@@ -16,8 +16,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create user" do
+    unique_email = "new_user_#{Time.now.to_i}_#{rand(1000)}@example.com"
+    unique_phone = "999888#{rand(1000000).to_s.rjust(6, '0')}"
+
     assert_difference("User.count") do
-      post users_url, params: { user: { email: @user.email, name: @user.name, phone: @user.phone } }
+      post users_url, params: { user: {
+        name: "Novo Usuário de Teste",
+        email: unique_email,
+        phone: unique_phone
+      } }
     end
 
     assert_redirected_to user_url(User.last)
@@ -34,7 +41,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update user" do
-    patch user_url(@user), params: { user: { email: @user.email, name: @user.name, phone: @user.phone } }
+    updated_email = "updated_user_#{Time.now.to_i}_#{rand(1000)}@example.com"
+
+    patch user_url(@user), params: { user: {
+      name: "Nome Atualizado do Teste",
+      email: updated_email,
+      phone: @user.phone
+    } }
+
     assert_redirected_to user_url(@user)
   end
 
